@@ -142,7 +142,12 @@ const SortableImage: React.FC<SortableImageProps> = ({
 };
 
 const PhotoCollageMaker = () => {
+  // Supporto per fino a 8 immagini
   const [images, setImages] = useState<(string | null)[]>([
+    null,
+    null,
+    null,
+    null,
     null,
     null,
     null,
@@ -154,6 +159,9 @@ const PhotoCollageMaker = () => {
   const [selectedLayout, setSelectedLayout] = useState<
     "quadrati" | "alternato"
   >("quadrati");
+
+  // Forza il layout quadrati quando ci sono più di 4 foto
+  const effectiveLayout = images.filter((img) => img !== null && img !== "HEIC_PLACEHOLDER").length > 4 ? "quadrati" : selectedLayout;
 
   // Configurazione sensori per mobile
   const sensors = useSensors(
@@ -172,14 +180,22 @@ const PhotoCollageMaker = () => {
     false,
     false,
     false,
+    false,
+    false,
+    false,
+    false,
   ]);
   const [loadingProgress, setLoadingProgress] = useState<number[]>([
-    0, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0,
   ]);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const tooltipRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const fileInputRefs = useRef<(HTMLInputElement | null)[]>([
+    null,
+    null,
+    null,
+    null,
     null,
     null,
     null,
@@ -251,11 +267,11 @@ const PhotoCollageMaker = () => {
 
     // Reset completo prima di caricare
     console.log("🔄 Reset completo prima del caricamento");
-    setImages([null, null, null, null]);
-    setLoadingStates([false, false, false, false]);
-    setLoadingProgress([0, 0, 0, 0]);
+    setImages([null, null, null, null, null, null, null, null]);
+    setLoadingStates([false, false, false, false, false, false, false, false]);
+    setLoadingProgress([0, 0, 0, 0, 0, 0, 0, 0]);
 
-    const filesToProcess = fileArray.slice(0, 4);
+    const filesToProcess = fileArray.slice(0, 8);
     console.log(`📁 File da processare: ${filesToProcess.length}`);
 
     // Log dettagliato dei file
@@ -378,12 +394,12 @@ const PhotoCollageMaker = () => {
       }
 
       if (files.length > 0) {
-        if (files.length > 4) {
+        if (files.length > 8) {
           console.log(
-            `⚠️ Troppi file selezionati: ${files.length}, limitando a 4`
+            `⚠️ Troppi file selezionati: ${files.length}, limitando a 8`
           );
           alert(
-            `Hai selezionato ${files.length} immagini. Verranno caricate solo le prime 4.`
+            `Hai selezionato ${files.length} immagini. Verranno caricate solo le prime 8.`
           );
         }
 
@@ -442,7 +458,7 @@ const PhotoCollageMaker = () => {
     );
 
     // Verifica che l'indice sia valido
-    if (index < 0 || index > 3) {
+    if (index < 0 || index > 7) {
       console.error(`❌ Indice non valido: ${index}`);
       return;
     }
@@ -740,9 +756,9 @@ Soluzioni rapide:
   };
 
   const resetAll = () => {
-    setImages([null, null, null, null]);
-    setLoadingStates([false, false, false, false]);
-    setLoadingProgress([0, 0, 0, 0]);
+    setImages([null, null, null, null, null, null, null, null]);
+    setLoadingStates([false, false, false, false, false, false, false, false]);
+    setLoadingProgress([0, 0, 0, 0, 0, 0, 0, 0]);
   };
 
   const triggerFileInput = (index: number) => {
@@ -829,29 +845,21 @@ Soluzioni rapide:
       let totalWidth: number;
       let totalHeight: number;
 
-      // Calcola dimensioni in base al layout selezionato
-      if (selectedLayout === "quadrati") {
-        // Layout quadrato: 4 immagini quadrate in fila
-        totalWidth = baseSize * 4 + spacing * 3 + outerBorder * 2;
-        totalHeight = baseSize + outerBorder * 2;
+      // Calcola dimensioni in base al layout effettivo
+        if (effectiveLayout === "quadrati") {
+        // Layout quadrato: immagini quadrate in fila
+        const imagesPerRow = 4;
+        const totalRows = Math.ceil(validImages.length / imagesPerRow);
+        totalWidth = baseSize * imagesPerRow + spacing * (imagesPerRow - 1) + outerBorder * 2;
+        totalHeight = baseSize * totalRows + spacing * (totalRows - 1) + outerBorder * 2;
       } else {
-        // Layout alternato: primo e ultimo slot quadrati, slot centrali con proporzioni variabili
-        // Slot 1 e 4: quadrati (baseSize x baseSize)
-        // Slot 2: +18% larghezza (baseSize * 1.18 x baseSize)
-        // Slot 3: -18% larghezza (baseSize * 0.82 x baseSize)
-        const slot1Width = baseSize; // Quadrato
-        const slot2Width = baseSize * 1.18; // +18%
-        const slot3Width = baseSize * 0.82; // -18%
-        const slot4Width = baseSize; // Quadrato
-
-        totalWidth =
-          slot1Width +
-          slot2Width +
-          slot3Width +
-          slot4Width +
-          spacing * 3 +
-          outerBorder * 2;
-        totalHeight = baseSize + outerBorder * 2;
+        // Layout alternato: 2 grandi + 2 piccoli (solo prime 4 foto)
+        const bigImageSize = baseSize;
+        const smallImageSize = baseSize / 2;
+        
+        // 2 colonne: prima colonna con 2 immagini grandi, seconda con 2 piccole
+        totalWidth = bigImageSize + smallImageSize + spacing + outerBorder * 2;
+        totalHeight = bigImageSize * 2 + spacing + outerBorder * 2;
       }
 
       console.log(
@@ -889,31 +897,37 @@ Soluzioni rapide:
             try {
               let x: number, y: number, width: number, height: number;
 
-              if (selectedLayout === "quadrati") {
-                // Layout quadrato: tutte le immagini hanno la stessa dimensione
-                x = outerBorder + index * (baseSize + spacing);
-                y = outerBorder;
+              if (effectiveLayout === "quadrati") {
+                // Layout quadrato: griglia di immagini
+                const imagesPerRow = 4;
+                const row = Math.floor(index / imagesPerRow);
+                const col = index % imagesPerRow;
+                
+                x = outerBorder + col * (baseSize + spacing);
+                y = outerBorder + row * (baseSize + spacing);
                 width = baseSize;
                 height = baseSize;
               } else {
-                // Layout alternato: dimensioni specifiche per ogni slot
-                const slotWidths = [
-                  baseSize,
-                  baseSize * 1.18,
-                  baseSize * 0.82,
-                  baseSize,
-                ];
-
-                // Calcola posizione X cumulativa
-                let cumulativeX = outerBorder;
-                for (let i = 0; i < index; i++) {
-                  cumulativeX += slotWidths[i] + spacing;
+                // Layout alternato: 2 grandi + 2 piccoli
+                const bigImageSize = baseSize;
+                const smallImageSize = baseSize / 2;
+                
+                if (index < 2) {
+                  // Prime 2 immagini: grandi nella prima colonna
+                  x = outerBorder;
+                  y = outerBorder + index * (bigImageSize + spacing);
+                  width = bigImageSize;
+                  height = bigImageSize;
+                } else if (index < 4) {
+                  // Immagini 3-4: piccole nella seconda colonna
+                  x = outerBorder + bigImageSize + spacing;
+                  y = outerBorder + (index - 2) * (smallImageSize + spacing);
+                  width = smallImageSize;
+                  height = smallImageSize;
+                } else {
+                  // Immagini oltre la 4: non dovrebbero essere processate nel layout alternato
+                  return;
                 }
-
-                x = cumulativeX;
-                y = outerBorder;
-                width = slotWidths[index];
-                height = baseSize; // Tutti gli slot hanno la stessa altezza
               }
 
               const scale = Math.max(width / img.width, height / img.height);
@@ -967,7 +981,10 @@ Soluzioni rapide:
       };
 
       try {
-        for (let i = 0; i < images.length; i++) {
+        // Nel layout alternato, processa solo le prime 4 immagini
+         const imagesToProcess = effectiveLayout === "alternato" ? 4 : images.length;
+        
+        for (let i = 0; i < imagesToProcess; i++) {
           if (images[i]) {
             await processImage(images[i], i);
           }
@@ -1097,31 +1114,48 @@ Soluzioni rapide:
           </p>
         </div>
 
-        {/* Selettore Layout */}
-        <div className="mb-6 text-center">
-          <div className="inline-flex rounded-lg border border-gray-200 bg-white p-1">
-            <button
-              onClick={() => setSelectedLayout("quadrati")}
-              className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
-                selectedLayout === "quadrati"
-                  ? "bg-blue-500 text-white"
-                  : "bg-gray-200 text-gray-700"
-              }`}
-            >
-              QUADRATI
-            </button>
-            <button
-              onClick={() => setSelectedLayout("alternato")}
-              className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
-                selectedLayout === "alternato"
-                  ? "bg-blue-500 text-white"
-                  : "bg-gray-200 text-gray-700"
-              }`}
-            >
-              ALTERNATO
-            </button>
+        {/* Selettore Layout - Mostra solo se almeno 1 foto è caricata */}
+        {images.some((img) => img !== null && img !== "HEIC_PLACEHOLDER") && (
+          <div className="mb-6 text-center">
+            <div className="inline-flex rounded-lg border border-gray-200 bg-white p-1">
+              <button
+                onClick={() => setSelectedLayout("quadrati")}
+                className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+                  selectedLayout === "quadrati"
+                    ? "bg-blue-500 text-white"
+                    : "bg-gray-200 text-gray-700"
+                }`}
+              >
+                QUADRATI
+              </button>
+              <button
+                onClick={() => {
+                  // Controlla se ci sono più di 4 foto caricate
+                  const loadedImages = images.filter((img) => img !== null && img !== "HEIC_PLACEHOLDER").length;
+                  if (loadedImages <= 4) {
+                    setSelectedLayout("alternato");
+                  }
+                }}
+                disabled={images.filter((img) => img !== null && img !== "HEIC_PLACEHOLDER").length > 4}
+                className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+                  selectedLayout === "alternato"
+                    ? "bg-blue-500 text-white"
+                    : images.filter((img) => img !== null && img !== "HEIC_PLACEHOLDER").length > 4
+                    ? "bg-gray-100 text-gray-400 cursor-not-allowed"
+                    : "bg-gray-200 text-gray-700"
+                }`}
+                title={images.filter((img) => img !== null && img !== "HEIC_PLACEHOLDER").length > 4 ? "Layout alternativo disponibile solo con 4 foto o meno" : ""}
+              >
+                ALTERNATO
+              </button>
+            </div>
+            {images.filter((img) => img !== null && img !== "HEIC_PLACEHOLDER").length > 4 && (
+              <p className="text-xs text-gray-500 mt-2">
+                💡 Layout alternativo disponibile solo con 4 foto o meno
+              </p>
+            )}
           </div>
-        </div>
+        )}
 
         <div className="text-center mb-4 sm:mb-6">
           <button
@@ -1129,10 +1163,10 @@ Soluzioni rapide:
             className="flex items-center justify-center mx-auto px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-lg hover:from-green-600 hover:to-emerald-700 transition-all duration-200 shadow-lg text-sm sm:text-base"
           >
             <Plus size={18} className="mr-2" />
-            Carica Immagini (Max 4)
+            Carica Immagini (Max 8)
           </button>
           <p className="text-xs sm:text-sm text-gray-500 mt-2">
-            Seleziona fino a 4 immagini che si posizioneranno automaticamente
+            Seleziona fino a 8 immagini che si posizioneranno automaticamente
           </p>
         </div>
       </div>
@@ -1156,79 +1190,25 @@ Soluzioni rapide:
               items={images.map((_, index) => index.toString())}
               strategy={rectSortingStrategy}
             >
-              {selectedLayout === "quadrati" ? (
-                // Layout Quadrati - 4 slot uguali
-                <div
-                  className="flex"
-                  style={{
-                    gap: "8.75px", // Gap originale
-                    width: "100%",
-                    maxWidth: "calc(100vw - 17.5px)", // Totale viewport minus padding del container bianco
-                  }}
-                >
-                  {images.map((image, index) => (
-                    <div
-                      key={index}
-                      className="relative bg-white overflow-hidden transition-all duration-300 ease-out flex-1"
-                      style={{
-                        aspectRatio: "1 / 1",
-                        minWidth: "60px",
-                      }}
-                    >
-                      <SortableImage
-                        id={index.toString()}
-                        index={index}
-                        image={image}
-                        isLoading={loadingStates[index]}
-                        progress={loadingProgress[index]}
-                        onImageUpload={handleImageUpload}
-                        onRemoveImage={removeImage}
-                        fileInputRef={{
-                          current: fileInputRefs.current[index]!,
-                        }}
-                      />
-                    </div>
-                  ))}
-                </div>
-              ) : (
-                // Layout Alternato - proporzioni variabili
-                <div
-                  className="flex"
-                  style={{
-                    gap: "8.75px",
-                    width: "100%",
-                    maxWidth: "calc(100vw - 17.5px)",
-                  }}
-                >
-                  {images.map((image, index) => {
-                    // Calcola le proporzioni per il layout alternato
-                    const getFlexBasis = (index: number) => {
-                      const proportions = [1, 1.18, 0.82, 1]; // base, +18%, -18%, base
-                      const totalUnits = proportions.reduce(
-                        (sum, prop) => sum + prop,
-                        0
-                      );
-                      return `${(proportions[index] / totalUnits) * 100}%`;
-                    };
-
-                    // Nel layout alternato, solo il primo e l'ultimo slot sono quadrati
-                    // Gli altri mantengono l'altezza base ma hanno larghezze diverse
-                    const getAspectRatio = (index: number) => {
-                      return index === 0 || index === 3 ? "1 / 1" : "auto";
-                    };
-
-                    return (
+              {effectiveLayout === "quadrati" ? (
+                // Layout Quadrati - supporta fino a 8 foto
+                <div className="w-full">
+                  {/* Prime 4 foto */}
+                  <div
+                    className="flex mb-2"
+                    style={{
+                      gap: "8.75px",
+                      width: "100%",
+                      maxWidth: "calc(100vw - 17.5px)",
+                    }}
+                  >
+                    {images.slice(0, 4).map((image, index) => (
                       <div
                         key={index}
-                        className="relative bg-white overflow-hidden transition-all duration-300 ease-out"
+                        className="relative bg-white overflow-hidden transition-all duration-300 ease-out flex-1"
                         style={{
-                          flexBasis: getFlexBasis(index),
-                          aspectRatio: getAspectRatio(index),
-                          minWidth: "50px",
-                          // Per slot 2 e 3, impostiamo un'altezza fissa basata sulla larghezza del primo slot
-                          ...(index === 1 || index === 2
-                            ? { height: "calc((100vw - 43.75px) / 4)" }
-                            : {}),
+                          aspectRatio: "1 / 1",
+                          minWidth: "60px",
                         }}
                       >
                         <SortableImage
@@ -1244,8 +1224,120 @@ Soluzioni rapide:
                           }}
                         />
                       </div>
-                    );
-                  })}
+                    ))}
+                  </div>
+                  
+                  {/* Foto aggiuntive (5-8) se presenti */}
+                  {images.slice(4).some((img, idx) => img !== null || loadingStates[idx + 4]) && (
+                    <div
+                      className="flex"
+                      style={{
+                        gap: "8.75px",
+                        width: "100%",
+                        maxWidth: "calc(100vw - 17.5px)",
+                      }}
+                    >
+                      {images.slice(4, 8).map((image, index) => (
+                        <div
+                          key={index + 4}
+                          className="relative bg-white overflow-hidden transition-all duration-300 ease-out flex-1"
+                          style={{
+                            aspectRatio: "1 / 1",
+                            minWidth: "60px",
+                          }}
+                        >
+                          <SortableImage
+                            id={(index + 4).toString()}
+                            index={index + 4}
+                            image={image}
+                            isLoading={loadingStates[index + 4]}
+                            progress={loadingProgress[index + 4]}
+                            onImageUpload={handleImageUpload}
+                            onRemoveImage={removeImage}
+                            fileInputRef={{
+                              current: fileInputRefs.current[index + 4]!,
+                            }}
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ) : (
+                // Layout Alternato - 2 grandi + 2 piccoli (solo prime 4 foto)
+                <div
+                  className="flex"
+                  style={{
+                    gap: "8.75px",
+                    width: "100%",
+                    maxWidth: "calc(100vw - 17.5px)",
+                  }}
+                >
+                  {/* Prima colonna - 2 immagini grandi */}
+                  <div
+                    className="flex flex-col"
+                    style={{
+                      gap: "8.75px",
+                      flex: "2",
+                    }}
+                  >
+                    {images.slice(0, 2).map((image, index) => (
+                      <div
+                        key={index}
+                        className="relative bg-white overflow-hidden transition-all duration-300 ease-out"
+                        style={{
+                          aspectRatio: "1 / 1",
+                          minHeight: "60px",
+                        }}
+                      >
+                        <SortableImage
+                          id={index.toString()}
+                          index={index}
+                          image={image}
+                          isLoading={loadingStates[index]}
+                          progress={loadingProgress[index]}
+                          onImageUpload={handleImageUpload}
+                          onRemoveImage={removeImage}
+                          fileInputRef={{
+                            current: fileInputRefs.current[index]!,
+                          }}
+                        />
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Seconda colonna - 2 immagini piccole */}
+                  <div
+                    className="flex flex-col"
+                    style={{
+                      gap: "8.75px",
+                      flex: "1",
+                    }}
+                  >
+                    {images.slice(2, 4).map((image, index) => (
+                      <div
+                        key={index + 2}
+                        className="relative bg-white overflow-hidden transition-all duration-300 ease-out"
+                        style={{
+                          aspectRatio: "1 / 1",
+                          minHeight: "60px",
+                        }}
+                      >
+                        <SortableImage
+                          id={(index + 2).toString()}
+                          index={index + 2}
+                          image={image}
+                          isLoading={loadingStates[index + 2]}
+                          progress={loadingProgress[index + 2]}
+                          onImageUpload={handleImageUpload}
+                          onRemoveImage={removeImage}
+                          fileInputRef={{
+                            current: fileInputRefs.current[index + 2]!,
+                          }}
+                        />
+                      </div>
+                    ))}
+                  </div>
                 </div>
               )}
             </SortableContext>
@@ -1294,7 +1386,7 @@ Soluzioni rapide:
             </div>
             <span className="text-xs text-blue-600">
               {images.filter((img) => img && img !== "HEIC_PLACEHOLDER").length}
-              /4 caricate
+              /8 caricate
             </span>
           </div>
         </div>
