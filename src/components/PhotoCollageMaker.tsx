@@ -873,7 +873,7 @@ Soluzioni rapide:
     input.click();
   };
 
-  const checkTooltipDistance = (e: MouseEvent) => {
+  const checkTooltipDistance = useCallback((e: MouseEvent) => {
     if (!showTooltip || !tooltipRef.current || !buttonRef.current) return;
 
     const buttonRect = buttonRef.current.getBoundingClientRect();
@@ -897,16 +897,16 @@ Soluzioni rapide:
     if (minDistance > 100) {
       setShowTooltip(false);
     }
-  };
+  }, [showTooltip]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (showTooltip) {
       document.addEventListener("mousemove", checkTooltipDistance);
       return () => {
         document.removeEventListener("mousemove", checkTooltipDistance);
       };
     }
-  }, [showTooltip]);
+  }, [showTooltip, checkTooltipDistance]);
 
   const saveToGallery = async (format = "png") => {
     console.log(`💾 Inizio esportazione in formato ${format.toUpperCase()}`);
