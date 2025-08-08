@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Layout Upload Responsive</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      // Variabile globale per il layout selezionato
+      let selectedLayout = 'quadrati';
+
+      function calculateSlotSizes() {
+        const screenWidth = window.innerWidth;
+        const padding = 32; // padding laterale
+        const availableWidth = screenWidth - padding;
+
+        // Layout quadrati: 4 slot uguali
+        const gapStandard = 12; // 3 gap da 4px ciascuno
+        const standardSlotSize = Math.floor((availableWidth - gapStandard) / 4);
+
+        // Layout alternato: proporzioni relative (base, +18%, -18%, base)
+        const gapAlternative = 12;
+        const totalUnits = 1 + 1.18 + 0.82 + 1; // 4 unità totali con proporzioni
+        const baseSize = Math.floor(
+          (availableWidth - gapAlternative) / totalUnits
+        );
+
+        const alternativeSlots = {
+          slot1: baseSize,
+          slot2: Math.floor(baseSize * 1.18),
+          slot3: Math.floor(baseSize * 0.82),
+          slot4: baseSize,
+        };
+
+        // Altezza sempre uguale alla larghezza (quadrati perfetti per il primo layout)
+        // Per il secondo layout, l'altezza segue la larghezza base
+        const standardHeight = standardSlotSize;
+        const alternativeHeight = baseSize;
+
+        return {
+          standard: { width: standardSlotSize, height: standardHeight },
+          alternative: {
+            slot1: { width: alternativeSlots.slot1, height: alternativeHeight },
+            slot2: { width: alternativeSlots.slot2, height: alternativeHeight },
+            slot3: { width: alternativeSlots.slot3, height: alternativeHeight },
+            slot4: { width: alternativeSlots.slot4, height: alternativeHeight },
+          },
+        };
+      }
+
+      function updateSlotSizes() {
+        const sizes = calculateSlotSizes();
+
+        // Aggiorna layout quadrati
+        document.querySelectorAll(".standard-slot").forEach((slot) => {
+          slot.style.width = sizes.standard.width + "px";
+          slot.style.height = sizes.standard.height + "px";
+        });
+
+        // Aggiorna layout alternato
+        const altSlot1 = document.getElementById("alt-slot-1");
+        const altSlot2 = document.getElementById("alt-slot-2");
+        const altSlot3 = document.getElementById("alt-slot-3");
+        const altSlot4 = document.getElementById("alt-slot-4");
+        
+        if (altSlot1) {
+          altSlot1.style.width = sizes.alternative.slot1.width + "px";
+          altSlot1.style.height = sizes.alternative.slot1.height + "px";
+        }
+        if (altSlot2) {
+          altSlot2.style.width = sizes.alternative.slot2.width + "px";
+          altSlot2.style.height = sizes.alternative.slot2.height + "px";
+        }
+        if (altSlot3) {
+          altSlot3.style.width = sizes.alternative.slot3.width + "px";
+          altSlot3.style.height = sizes.alternative.slot3.height + "px";
+        }
+        if (altSlot4) {
+          altSlot4.style.width = sizes.alternative.slot4.width + "px";
+          altSlot4.style.height = sizes.alternative.slot4.height + "px";
+        }
+      }
+
+      // Funzione per cambiare layout
+      function changeLayout(layoutType) {
+        selectedLayout = layoutType;
+        
+        const quadratiLayout = document.getElementById('layout-quadrati');
+        const alternatoLayout = document.getElementById('layout-alternato');
+        const quadratiBtn = document.getElementById('btn-quadrati');
+        const alternatoBtn = document.getElementById('btn-alternato');
+        
+        if (layoutType === 'quadrati') {
+          quadratiLayout.style.display = 'block';
+          alternatoLayout.style.display = 'none';
+          quadratiBtn.classList.add('bg-blue-500', 'text-white');
+          quadratiBtn.classList.remove('bg-gray-200', 'text-gray-700');
+          alternatoBtn.classList.add('bg-gray-200', 'text-gray-700');
+          alternatoBtn.classList.remove('bg-blue-500', 'text-white');
+        } else {
+          quadratiLayout.style.display = 'none';
+          alternatoLayout.style.display = 'block';
+          alternatoBtn.classList.add('bg-blue-500', 'text-white');
+          alternatoBtn.classList.remove('bg-gray-200', 'text-gray-700');
+          quadratiBtn.classList.add('bg-gray-200', 'text-gray-700');
+          quadratiBtn.classList.remove('bg-blue-500', 'text-white');
+        }
+        
+        // Aggiorna le dimensioni dopo il cambio di layout
+        setTimeout(updateSlotSizes, 10);
+      }
+
+      window.addEventListener("resize", updateSlotSizes);
+      window.addEventListener("DOMContentLoaded", function() {
+        updateSlotSizes();
+        changeLayout('quadrati'); // Imposta il layout di default
+      });
+    </script>
+  </head>
+  <body class="bg-gray-50 p-4">
+    <div class="max-w-4xl mx-auto">
+      <!-- Selettore Layout -->
+      <div class="mb-8 text-center">
+        <h1 class="text-2xl font-bold text-gray-800 mb-4">Creatore di Collage</h1>
+        <div class="inline-flex rounded-lg border border-gray-200 bg-white p-1">
+          <button 
+            id="btn-quadrati"
+            onclick="changeLayout('quadrati')"
+            class="px-4 py-2 rounded-md text-sm font-medium transition-colors bg-blue-500 text-white"
+          >
+            QUADRATI
+          </button>
+          <button 
+            id="btn-alternato"
+            onclick="changeLayout('alternato')"
+            class="px-4 py-2 rounded-md text-sm font-medium transition-colors bg-gray-200 text-gray-700"
+          >
+            ALTERNATO
+          </button>
+        </div>
+      </div>
+
+      <!-- Layout Quadrati -->
+      <div id="layout-quadrati" class="bg-white p-2 mx-auto flex justify-center shadow-sm">
+        <div class="flex gap-2">
+          <div
+            class="standard-slot relative bg-white overflow-hidden transition-all duration-300 ease-out"
+          >
+            <div
+              class="relative w-full h-full bg-gray-100 border-2 border-dashed border-gray-300 overflow-hidden group hover:border-blue-400 transition-colors cursor-pointer"
+            >
+              <div class="flex flex-col items-center justify-center h-full p-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="w-6 h-6 text-gray-400 mb-1"
+                >
+                  <path d="M12 3v12"></path>
+                  <path d="m17 8-5-5-5 5"></path>
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                </svg>
+                <span class="text-xs text-gray-600 text-center">Carica</span>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="standard-slot relative bg-white overflow-hidden transition-all duration-300 ease-out"
+          >
+            <div
+              class="relative w-full h-full bg-gray-100 border-2 border-dashed border-gray-300 overflow-hidden group hover:border-blue-400 transition-colors cursor-pointer"
+            >
+              <div class="flex flex-col items-center justify-center h-full p-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="w-6 h-6 text-gray-400 mb-1"
+                >
+                  <path d="M12 3v12"></path>
+                  <path d="m17 8-5-5-5 5"></path>
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                </svg>
+                <span class="text-xs text-gray-600 text-center">Carica</span>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="standard-slot relative bg-white overflow-hidden transition-all duration-300 ease-out"
+          >
+            <div
+              class="relative w-full h-full bg-gray-100 border-2 border-dashed border-gray-300 overflow-hidden group hover:border-blue-400 transition-colors cursor-pointer"
+            >
+              <div class="flex flex-col items-center justify-center h-full p-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="w-6 h-6 text-gray-400 mb-1"
+                >
+                  <path d="M12 3v12"></path>
+                  <path d="m17 8-5-5-5 5"></path>
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                </svg>
+                <span class="text-xs text-gray-600 text-center">Carica</span>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="standard-slot relative bg-white overflow-hidden transition-all duration-300 ease-out"
+          >
+            <div
+              class="relative w-full h-full bg-gray-100 border-2 border-dashed border-gray-300 overflow-hidden group hover:border-blue-400 transition-colors cursor-pointer"
+            >
+              <div class="flex flex-col items-center justify-center h-full p-2">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="w-6 h-6 text-gray-400 mb-1"
+                >
+                  <path d="M12 3v12"></path>
+                  <path d="m17 8-5-5-5 5"></path>
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                </svg>
+                <span class="text-xs text-gray-600 text-center">Carica</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Layout Alternato -->
+      <div id="layout-alternato" class="bg-white p-2 mx-auto flex justify-center shadow-sm" style="display: none;">
+          <div class="flex gap-2">
+            <!-- Slot 1 - BASE -->
+            <div
+              id="alt-slot-1"
+              class="bg-gray-100 border-2 border-dashed border-gray-300 hover:border-green-400 transition-colors cursor-pointer flex flex-col items-center justify-center"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="w-6 h-6 text-gray-400 mb-1"
+              >
+                <path d="M12 3v12"></path>
+                <path d="m17 8-5-5-5 5"></path>
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              </svg>
+              <span class="text-xs text-gray-600 text-center">Slot 1</span>
+            </div>
+
+            <!-- Slot 2 - +18% più largo -->
+            <div
+              id="alt-slot-2"
+              class="bg-gray-100 border-2 border-dashed border-gray-300 hover:border-green-400 transition-colors cursor-pointer flex flex-col items-center justify-center"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="w-6 h-6 text-gray-400 mb-1"
+              >
+                <path d="M12 3v12"></path>
+                <path d="m17 8-5-5-5 5"></path>
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              </svg>
+              <span class="text-xs text-gray-600 text-center">Slot 2</span>
+            </div>
+
+            <!-- Slot 3 - -18% più stretto -->
+            <div
+              id="alt-slot-3"
+              class="bg-gray-100 border-2 border-dashed border-gray-300 hover:border-green-400 transition-colors cursor-pointer flex flex-col items-center justify-center"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="w-6 h-6 text-gray-400 mb-1"
+              >
+                <path d="M12 3v12"></path>
+                <path d="m17 8-5-5-5 5"></path>
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              </svg>
+              <span class="text-xs text-gray-600 text-center">Slot 3</span>
+            </div>
+
+            <!-- Slot 4 - BASE -->
+            <div
+              id="alt-slot-4"
+              class="bg-gray-100 border-2 border-dashed border-gray-300 hover:border-green-400 transition-colors cursor-pointer flex flex-col items-center justify-center"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="w-6 h-6 text-gray-400 mb-1"
+              >
+                <path d="M12 3v12"></path>
+                <path d="m17 8-5-5-5 5"></path>
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              </svg>
+              <span class="text-xs text-gray-600 text-center">Slot 4</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

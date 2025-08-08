@@ -1,0 +1,2367 @@
+[
+  {
+    "timestamp": "2025-08-04T23:07:52.622Z",
+    "eventType": "touch_start",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "index": 1,
+    "touchX": 144,
+    "touchY": 232,
+    "pageX": 144,
+    "pageY": 232,
+    "touchesCount": 1,
+    "targetElement": "DIV",
+    "serverTimestamp": "2025-08-04T23:07:52.861Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:07:53.105Z",
+    "eventType": "touch_move",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 1,
+    "touchX": 319,
+    "touchY": 194,
+    "deltaX": 175,
+    "deltaY": -38,
+    "distance": 179.07819521091898,
+    "serverTimestamp": "2025-08-04T23:07:53.135Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:07:53.372Z",
+    "eventType": "touch_move",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 1,
+    "touchX": 376,
+    "touchY": 116,
+    "deltaX": 232,
+    "deltaY": -116,
+    "distance": 259.3838853899756,
+    "serverTimestamp": "2025-08-04T23:07:53.394Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:07:53.407Z",
+    "eventType": "touch_end",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 1,
+    "dragOverIndex": 1,
+    "touchX": 386,
+    "touchY": 114,
+    "swapWillOccur": false,
+    "serverTimestamp": "2025-08-04T23:07:53.428Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:07:54.121Z",
+    "eventType": "touch_start",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "index": 3,
+    "touchX": 354,
+    "touchY": 217,
+    "pageX": 354,
+    "pageY": 217,
+    "touchesCount": 1,
+    "targetElement": "DIV",
+    "serverTimestamp": "2025-08-04T23:07:54.149Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:07:54.372Z",
+    "eventType": "touch_move",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 3,
+    "touchX": 212,
+    "touchY": 189,
+    "deltaX": -142,
+    "deltaY": -28,
+    "distance": 144.734239211045,
+    "serverTimestamp": "2025-08-04T23:07:54.399Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:07:54.655Z",
+    "eventType": "touch_move",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 3,
+    "touchX": 31,
+    "touchY": 177,
+    "deltaX": -323,
+    "deltaY": -40,
+    "distance": 325.46735627402023,
+    "serverTimestamp": "2025-08-04T23:07:54.680Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:07:54.872Z",
+    "eventType": "touch_end",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 3,
+    "dragOverIndex": 3,
+    "touchX": 29,
+    "touchY": 177,
+    "swapWillOccur": false,
+    "serverTimestamp": "2025-08-04T23:07:54.891Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:07:55.668Z",
+    "eventType": "touch_start",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "index": 3,
+    "touchX": 337,
+    "touchY": 209,
+    "pageX": 337,
+    "pageY": 209,
+    "touchesCount": 1,
+    "targetElement": "DIV",
+    "serverTimestamp": "2025-08-04T23:07:55.701Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:07:55.838Z",
+    "eventType": "touch_move",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 3,
+    "touchX": 214,
+    "touchY": 247,
+    "deltaX": -123,
+    "deltaY": 38,
+    "distance": 128.73616430514,
+    "serverTimestamp": "2025-08-04T23:07:55.863Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:07:56.138Z",
+    "eventType": "touch_move",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 3,
+    "touchX": 56,
+    "touchY": 186,
+    "deltaX": -281,
+    "deltaY": -23,
+    "distance": 281.93970986719836,
+    "serverTimestamp": "2025-08-04T23:07:56.178Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:07:56.139Z",
+    "eventType": "touch_enter_drop_zone",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 3,
+    "targetIndex": 0,
+    "touchX": 56,
+    "touchY": 186,
+    "serverTimestamp": "2025-08-04T23:07:56.182Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:07:56.173Z",
+    "eventType": "touch_enter_drop_zone",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 3,
+    "targetIndex": 3,
+    "touchX": 47,
+    "touchY": 181,
+    "serverTimestamp": "2025-08-04T23:07:56.199Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:07:56.205Z",
+    "eventType": "touch_move",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 3,
+    "touchX": 46,
+    "touchY": 182,
+    "deltaX": -291,
+    "deltaY": -27,
+    "distance": 292.2498930709813,
+    "serverTimestamp": "2025-08-04T23:07:56.224Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:07:56.588Z",
+    "eventType": "touch_move",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 3,
+    "touchX": 44,
+    "touchY": 232,
+    "deltaX": -293,
+    "deltaY": 23,
+    "distance": 293.901343991483,
+    "serverTimestamp": "2025-08-04T23:07:56.612Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:07:56.671Z",
+    "eventType": "touch_move",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 3,
+    "touchX": 57,
+    "touchY": 155,
+    "deltaX": -280,
+    "deltaY": -54,
+    "distance": 285.1596044323249,
+    "serverTimestamp": "2025-08-04T23:07:56.694Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:07:56.938Z",
+    "eventType": "touch_end",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 3,
+    "dragOverIndex": 3,
+    "touchX": 65,
+    "touchY": 140,
+    "swapWillOccur": false,
+    "serverTimestamp": "2025-08-04T23:07:56.960Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:07:57.739Z",
+    "eventType": "touch_start",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "index": 2,
+    "touchX": 266,
+    "touchY": 225,
+    "pageX": 266,
+    "pageY": 225,
+    "touchesCount": 1,
+    "targetElement": "DIV",
+    "serverTimestamp": "2025-08-04T23:07:57.760Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:07:57.822Z",
+    "eventType": "touch_move",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 2,
+    "touchX": 195,
+    "touchY": 234,
+    "deltaX": -71,
+    "deltaY": 9,
+    "distance": 71.56814934033156,
+    "serverTimestamp": "2025-08-04T23:07:57.844Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:07:58.005Z",
+    "eventType": "touch_move",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 2,
+    "touchX": 85,
+    "touchY": 205,
+    "deltaX": -181,
+    "deltaY": -20,
+    "distance": 182.10161998181127,
+    "serverTimestamp": "2025-08-04T23:07:58.024Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:07:58.022Z",
+    "eventType": "touch_enter_drop_zone",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 2,
+    "targetIndex": 0,
+    "touchX": 90,
+    "touchY": 174,
+    "serverTimestamp": "2025-08-04T23:07:58.039Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:07:58.105Z",
+    "eventType": "touch_enter_drop_zone",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 2,
+    "targetIndex": 2,
+    "touchX": 92,
+    "touchY": 150,
+    "serverTimestamp": "2025-08-04T23:07:58.121Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:07:58.322Z",
+    "eventType": "touch_move",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 2,
+    "touchX": 143,
+    "touchY": 6,
+    "deltaX": -123,
+    "deltaY": -219,
+    "distance": 251.17722826721374,
+    "serverTimestamp": "2025-08-04T23:07:58.341Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:07:58.355Z",
+    "eventType": "touch_move",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 2,
+    "touchX": 151,
+    "touchY": -1,
+    "deltaX": -115,
+    "deltaY": -226,
+    "distance": 253.57641846196975,
+    "serverTimestamp": "2025-08-04T23:07:58.371Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:07:59.338Z",
+    "eventType": "touch_move",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 2,
+    "touchX": 27,
+    "touchY": 232,
+    "deltaX": -239,
+    "deltaY": 7,
+    "distance": 239.10248848558643,
+    "serverTimestamp": "2025-08-04T23:07:59.373Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:07:59.638Z",
+    "eventType": "touch_move",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 2,
+    "touchX": 87,
+    "touchY": 212,
+    "deltaX": -179,
+    "deltaY": -13,
+    "distance": 179.47144619688115,
+    "serverTimestamp": "2025-08-04T23:07:59.655Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:07:59.672Z",
+    "eventType": "touch_end",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 2,
+    "dragOverIndex": 2,
+    "touchX": 73,
+    "touchY": 240,
+    "swapWillOccur": false,
+    "serverTimestamp": "2025-08-04T23:07:59.688Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:08:07.213Z",
+    "eventType": "touch_start",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "index": 0,
+    "touchX": 70,
+    "touchY": 219,
+    "pageX": 70,
+    "pageY": 219,
+    "touchesCount": 1,
+    "targetElement": "DIV",
+    "serverTimestamp": "2025-08-04T23:08:07.313Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:08:07.329Z",
+    "eventType": "touch_move",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 0,
+    "touchX": 109,
+    "touchY": 211,
+    "deltaX": 39,
+    "deltaY": -8,
+    "distance": 39.81205847478876,
+    "serverTimestamp": "2025-08-04T23:08:07.480Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:08:08.596Z",
+    "eventType": "touch_end",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 0,
+    "dragOverIndex": 0,
+    "touchX": 365,
+    "touchY": 215,
+    "swapWillOccur": false,
+    "serverTimestamp": "2025-08-04T23:08:08.627Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:08:09.705Z",
+    "eventType": "touch_start",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "index": 3,
+    "touchX": 337,
+    "touchY": 251,
+    "pageX": 337,
+    "pageY": 251,
+    "touchesCount": 1,
+    "targetElement": "DIV",
+    "serverTimestamp": "2025-08-04T23:08:09.722Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:08:10.280Z",
+    "eventType": "touch_end",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 3,
+    "dragOverIndex": 3,
+    "touchX": 20,
+    "touchY": 210,
+    "swapWillOccur": false,
+    "serverTimestamp": "2025-08-04T23:08:10.318Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:10:05.510Z",
+    "eventType": "touch_start",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "index": 3,
+    "touchX": 314,
+    "touchY": 216,
+    "pageX": 314,
+    "pageY": 216,
+    "touchesCount": 1,
+    "targetElement": "DIV",
+    "serverTimestamp": "2025-08-04T23:10:05.548Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:10:05.709Z",
+    "eventType": "touch_end",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 3,
+    "dragOverIndex": 3,
+    "touchX": 169,
+    "touchY": 785,
+    "swapWillOccur": false,
+    "serverTimestamp": "2025-08-04T23:10:05.745Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:10:06.830Z",
+    "eventType": "touch_start",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "index": 3,
+    "touchX": 339,
+    "touchY": 229,
+    "pageX": 339,
+    "pageY": 229,
+    "touchesCount": 1,
+    "targetElement": "DIV",
+    "serverTimestamp": "2025-08-04T23:10:06.851Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:10:07.021Z",
+    "eventType": "touch_move",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 3,
+    "touchX": 272,
+    "touchY": 474,
+    "deltaX": -67,
+    "deltaY": 245,
+    "distance": 253.99606296161363,
+    "serverTimestamp": "2025-08-04T23:10:07.037Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:10:07.187Z",
+    "eventType": "touch_end",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 3,
+    "dragOverIndex": 3,
+    "touchX": 240,
+    "touchY": 758,
+    "swapWillOccur": false,
+    "serverTimestamp": "2025-08-04T23:10:07.208Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:10:08.015Z",
+    "eventType": "touch_start",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "index": 3,
+    "touchX": 327,
+    "touchY": 244,
+    "pageX": 327,
+    "pageY": 244,
+    "touchesCount": 1,
+    "targetElement": "DIV",
+    "serverTimestamp": "2025-08-04T23:10:08.044Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:10:08.221Z",
+    "eventType": "touch_move",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 3,
+    "touchX": 252,
+    "touchY": 582,
+    "deltaX": -75,
+    "deltaY": 338,
+    "distance": 346.2210276687423,
+    "serverTimestamp": "2025-08-04T23:10:08.242Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:10:08.254Z",
+    "eventType": "touch_end",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 3,
+    "dragOverIndex": 3,
+    "touchX": 254,
+    "touchY": 593,
+    "swapWillOccur": false,
+    "serverTimestamp": "2025-08-04T23:10:08.272Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:10:20.445Z",
+    "eventType": "touch_start",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "index": 3,
+    "touchX": 337,
+    "touchY": 224,
+    "pageX": 337,
+    "pageY": 224,
+    "touchesCount": 1,
+    "targetElement": "DIV",
+    "serverTimestamp": "2025-08-04T23:10:20.490Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:10:20.455Z",
+    "eventType": "touch_move",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 3,
+    "touchX": 324,
+    "touchY": 221,
+    "deltaX": -13,
+    "deltaY": -3,
+    "distance": 13.341664064126334,
+    "serverTimestamp": "2025-08-04T23:10:20.497Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:10:20.643Z",
+    "eventType": "touch_move",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 3,
+    "touchX": 177,
+    "touchY": 229,
+    "deltaX": -160,
+    "deltaY": 5,
+    "distance": 160.0781059358212,
+    "serverTimestamp": "2025-08-04T23:10:20.672Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:10:21.060Z",
+    "eventType": "touch_end",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 3,
+    "dragOverIndex": 3,
+    "touchX": 77,
+    "touchY": 168,
+    "swapWillOccur": false,
+    "serverTimestamp": "2025-08-04T23:10:21.086Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:10:21.592Z",
+    "eventType": "touch_start",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "index": 2,
+    "touchX": 264,
+    "touchY": 231,
+    "pageX": 264,
+    "pageY": 231,
+    "touchesCount": 1,
+    "targetElement": "DIV",
+    "serverTimestamp": "2025-08-04T23:10:21.612Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:10:21.759Z",
+    "eventType": "touch_move",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 2,
+    "touchX": 60,
+    "touchY": 226,
+    "deltaX": -204,
+    "deltaY": -5,
+    "distance": 204.0612653102004,
+    "serverTimestamp": "2025-08-04T23:10:21.781Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:10:21.826Z",
+    "eventType": "touch_end",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 2,
+    "dragOverIndex": 2,
+    "touchX": 31,
+    "touchY": 241,
+    "swapWillOccur": false,
+    "serverTimestamp": "2025-08-04T23:10:21.840Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:10:22.240Z",
+    "eventType": "touch_start",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "index": 0,
+    "touchX": 94,
+    "touchY": 225,
+    "pageX": 94,
+    "pageY": 225,
+    "touchesCount": 1,
+    "targetElement": "DIV",
+    "serverTimestamp": "2025-08-04T23:10:22.266Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:10:22.292Z",
+    "eventType": "touch_move",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 0,
+    "touchX": 129,
+    "touchY": 224,
+    "deltaX": 35,
+    "deltaY": -1,
+    "distance": 35.014282800023196,
+    "serverTimestamp": "2025-08-04T23:10:22.309Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:10:22.459Z",
+    "eventType": "touch_end",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 0,
+    "dragOverIndex": 0,
+    "touchX": 321,
+    "touchY": 203,
+    "swapWillOccur": false,
+    "serverTimestamp": "2025-08-04T23:10:22.501Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:10:22.956Z",
+    "eventType": "touch_start",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "index": 1,
+    "touchX": 180,
+    "touchY": 225,
+    "pageX": 180,
+    "pageY": 225,
+    "touchesCount": 1,
+    "targetElement": "DIV",
+    "serverTimestamp": "2025-08-04T23:10:23.003Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:10:23.092Z",
+    "eventType": "touch_move",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 1,
+    "touchX": 313,
+    "touchY": 210,
+    "deltaX": 133,
+    "deltaY": -15,
+    "distance": 133.843191832831,
+    "serverTimestamp": "2025-08-04T23:10:23.112Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:10:23.126Z",
+    "eventType": "touch_end",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 1,
+    "dragOverIndex": 1,
+    "touchX": 322,
+    "touchY": 208,
+    "swapWillOccur": false,
+    "serverTimestamp": "2025-08-04T23:10:23.148Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:10:23.526Z",
+    "eventType": "touch_start",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "index": 2,
+    "touchX": 255,
+    "touchY": 221,
+    "pageX": 255,
+    "pageY": 221,
+    "touchesCount": 1,
+    "targetElement": "DIV",
+    "serverTimestamp": "2025-08-04T23:10:23.551Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:10:23.659Z",
+    "eventType": "touch_move",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 2,
+    "touchX": 354,
+    "touchY": 206,
+    "deltaX": 99,
+    "deltaY": -15,
+    "distance": 100.12991560967181,
+    "serverTimestamp": "2025-08-04T23:10:23.675Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:10:23.675Z",
+    "eventType": "touch_move",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 2,
+    "touchX": 363,
+    "touchY": 203,
+    "deltaX": 108,
+    "deltaY": -18,
+    "distance": 109.48972554536796,
+    "serverTimestamp": "2025-08-04T23:10:23.688Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:10:23.709Z",
+    "eventType": "touch_end",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 2,
+    "dragOverIndex": 2,
+    "touchX": 368,
+    "touchY": 198,
+    "swapWillOccur": false,
+    "serverTimestamp": "2025-08-04T23:10:23.725Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:13:15.680Z",
+    "eventType": "touch_start",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 611
+    },
+    "index": 3,
+    "touchX": 326,
+    "touchY": 196,
+    "pageX": 326,
+    "pageY": 196,
+    "touchesCount": 1,
+    "targetElement": "DIV",
+    "serverTimestamp": "2025-08-04T23:13:15.734Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:13:15.934Z",
+    "eventType": "touch_end",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 638
+    },
+    "draggedIndex": 3,
+    "dragOverIndex": 3,
+    "touchX": 293,
+    "touchY": 692,
+    "swapWillOccur": false,
+    "serverTimestamp": "2025-08-04T23:13:15.953Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:13:16.899Z",
+    "eventType": "touch_start",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 654
+    },
+    "index": 3,
+    "touchX": 311,
+    "touchY": 214,
+    "pageX": 311,
+    "pageY": 214,
+    "touchesCount": 1,
+    "targetElement": "DIV",
+    "serverTimestamp": "2025-08-04T23:13:16.919Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:13:16.935Z",
+    "eventType": "touch_move",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 656
+    },
+    "draggedIndex": 3,
+    "touchX": 295,
+    "touchY": 284,
+    "deltaX": -16,
+    "deltaY": 70,
+    "distance": 71.80529228406496,
+    "serverTimestamp": "2025-08-04T23:13:16.952Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:13:17.079Z",
+    "eventType": "touch_move",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 659
+    },
+    "draggedIndex": 3,
+    "touchX": 215,
+    "touchY": 651,
+    "deltaX": -96,
+    "deltaY": 437,
+    "distance": 447.4203839790941,
+    "serverTimestamp": "2025-08-04T23:13:17.110Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:13:17.179Z",
+    "eventType": "touch_end",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 3,
+    "dragOverIndex": 3,
+    "touchX": 223,
+    "touchY": 711,
+    "swapWillOccur": false,
+    "serverTimestamp": "2025-08-04T23:13:17.199Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:13:18.101Z",
+    "eventType": "touch_start",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "index": 3,
+    "touchX": 336,
+    "touchY": 220,
+    "pageX": 336,
+    "pageY": 220,
+    "touchesCount": 1,
+    "targetElement": "DIV",
+    "serverTimestamp": "2025-08-04T23:13:18.123Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:13:18.162Z",
+    "eventType": "touch_move",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 3,
+    "touchX": 333,
+    "touchY": 261,
+    "deltaX": -3,
+    "deltaY": 41,
+    "distance": 41.10960958218893,
+    "serverTimestamp": "2025-08-04T23:13:18.178Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:13:18.428Z",
+    "eventType": "touch_end",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 3,
+    "dragOverIndex": 3,
+    "touchX": 194,
+    "touchY": 596,
+    "swapWillOccur": false,
+    "serverTimestamp": "2025-08-04T23:13:18.453Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:13:19.277Z",
+    "eventType": "touch_start",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "index": 2,
+    "touchX": 257,
+    "touchY": 217,
+    "pageX": 257,
+    "pageY": 217,
+    "touchesCount": 1,
+    "targetElement": "DIV",
+    "serverTimestamp": "2025-08-04T23:13:19.293Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:13:19.496Z",
+    "eventType": "touch_end",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 2,
+    "dragOverIndex": 2,
+    "touchX": 241,
+    "touchY": 595,
+    "swapWillOccur": false,
+    "serverTimestamp": "2025-08-04T23:13:19.512Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:13:28.236Z",
+    "eventType": "touch_start",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "index": 3,
+    "touchX": 334,
+    "touchY": 226,
+    "pageX": 334,
+    "pageY": 226,
+    "touchesCount": 1,
+    "targetElement": "DIV",
+    "serverTimestamp": "2025-08-04T23:13:28.288Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:13:28.298Z",
+    "eventType": "touch_move",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 3,
+    "touchX": 288,
+    "touchY": 226,
+    "deltaX": -46,
+    "deltaY": 0,
+    "distance": 46,
+    "serverTimestamp": "2025-08-04T23:13:28.315Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:13:28.899Z",
+    "eventType": "touch_end",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 3,
+    "dragOverIndex": null,
+    "touchX": 36,
+    "touchY": 196,
+    "swapWillOccur": false,
+    "serverTimestamp": "2025-08-04T23:13:28.929Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:13:29.637Z",
+    "eventType": "touch_start",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "index": 1,
+    "touchX": 152,
+    "touchY": 217,
+    "pageX": 152,
+    "pageY": 217,
+    "touchesCount": 1,
+    "targetElement": "DIV",
+    "serverTimestamp": "2025-08-04T23:13:29.659Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:13:29.915Z",
+    "eventType": "touch_end",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 1,
+    "dragOverIndex": null,
+    "touchX": 338,
+    "touchY": 196,
+    "swapWillOccur": false,
+    "serverTimestamp": "2025-08-04T23:13:29.944Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:13:40.306Z",
+    "eventType": "touch_start",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "index": 0,
+    "touchX": 54,
+    "touchY": 229,
+    "pageX": 54,
+    "pageY": 229,
+    "touchesCount": 1,
+    "targetElement": "DIV",
+    "serverTimestamp": "2025-08-04T23:13:40.340Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:13:40.876Z",
+    "eventType": "touch_end",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 0,
+    "dragOverIndex": null,
+    "touchX": 325,
+    "touchY": 59,
+    "swapWillOccur": false,
+    "serverTimestamp": "2025-08-04T23:13:40.902Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:13:41.515Z",
+    "eventType": "touch_start",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "index": 3,
+    "touchX": 318,
+    "touchY": 216,
+    "pageX": 318,
+    "pageY": 216,
+    "touchesCount": 1,
+    "targetElement": "DIV",
+    "serverTimestamp": "2025-08-04T23:13:41.555Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:13:41.909Z",
+    "eventType": "touch_end",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 3,
+    "dragOverIndex": null,
+    "touchX": 6,
+    "touchY": 211,
+    "swapWillOccur": false,
+    "serverTimestamp": "2025-08-04T23:13:41.980Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:13:42.593Z",
+    "eventType": "touch_start",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "index": 2,
+    "touchX": 244,
+    "touchY": 203,
+    "pageX": 244,
+    "pageY": 203,
+    "touchesCount": 1,
+    "targetElement": "DIV",
+    "serverTimestamp": "2025-08-04T23:13:42.621Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:13:42.826Z",
+    "eventType": "touch_move",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 2,
+    "touchX": 64,
+    "touchY": 189,
+    "deltaX": -180,
+    "deltaY": -14,
+    "distance": 180.54362353736008,
+    "serverTimestamp": "2025-08-04T23:13:42.848Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:13:42.960Z",
+    "eventType": "touch_move",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 2,
+    "touchX": 53,
+    "touchY": 183,
+    "deltaX": -191,
+    "deltaY": -20,
+    "distance": 192.04426573058618,
+    "serverTimestamp": "2025-08-04T23:13:42.979Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:13:43.060Z",
+    "eventType": "touch_end",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 2,
+    "dragOverIndex": null,
+    "touchX": 53,
+    "touchY": 181,
+    "swapWillOccur": false,
+    "serverTimestamp": "2025-08-04T23:13:43.078Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:13:43.574Z",
+    "eventType": "touch_start",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "index": 2,
+    "touchX": 236,
+    "touchY": 177,
+    "pageX": 236,
+    "pageY": 177,
+    "touchesCount": 1,
+    "targetElement": "DIV",
+    "serverTimestamp": "2025-08-04T23:13:43.597Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:13:43.993Z",
+    "eventType": "touch_move",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 2,
+    "touchX": 6,
+    "touchY": 165,
+    "deltaX": -230,
+    "deltaY": -12,
+    "distance": 230.31283073246266,
+    "serverTimestamp": "2025-08-04T23:13:44.014Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:13:44.127Z",
+    "eventType": "touch_move",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 2,
+    "touchX": 10,
+    "touchY": 155,
+    "deltaX": -226,
+    "deltaY": -22,
+    "distance": 227.06827167175956,
+    "serverTimestamp": "2025-08-04T23:13:44.144Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:13:44.360Z",
+    "eventType": "touch_move",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 2,
+    "touchX": 31,
+    "touchY": 105,
+    "deltaX": -205,
+    "deltaY": -72,
+    "distance": 217.27632176562636,
+    "serverTimestamp": "2025-08-04T23:13:44.377Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:13:44.477Z",
+    "eventType": "touch_move",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 2,
+    "touchX": 55,
+    "touchY": 105,
+    "deltaX": -181,
+    "deltaY": -72,
+    "distance": 194.79476378999513,
+    "serverTimestamp": "2025-08-04T23:13:44.495Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:13:44.811Z",
+    "eventType": "touch_end",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 2,
+    "dragOverIndex": null,
+    "touchX": 31,
+    "touchY": 16,
+    "swapWillOccur": false,
+    "serverTimestamp": "2025-08-04T23:13:44.839Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:16:06.123Z",
+    "eventType": "touch_start",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "index": 2,
+    "touchX": 241,
+    "touchY": 227,
+    "pageX": 241,
+    "pageY": 227,
+    "touchesCount": 1,
+    "targetElement": "DIV",
+    "serverTimestamp": "2025-08-04T23:16:06.165Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:16:06.406Z",
+    "eventType": "touch_move",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 2,
+    "touchX": 329,
+    "touchY": 224,
+    "deltaX": 88,
+    "deltaY": -3,
+    "distance": 88.05112151472007,
+    "serverTimestamp": "2025-08-04T23:16:06.437Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:16:06.742Z",
+    "eventType": "touch_end",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 2,
+    "dragOverIndex": 2,
+    "touchX": 368,
+    "touchY": 196,
+    "swapWillOccur": false,
+    "serverTimestamp": "2025-08-04T23:16:06.774Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:16:07.551Z",
+    "eventType": "touch_start",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "index": 3,
+    "touchX": 340,
+    "touchY": 223,
+    "pageX": 340,
+    "pageY": 223,
+    "touchesCount": 1,
+    "targetElement": "DIV",
+    "serverTimestamp": "2025-08-04T23:16:07.580Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:16:07.821Z",
+    "eventType": "touch_move",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 3,
+    "touchX": 118,
+    "touchY": 201,
+    "deltaX": -222,
+    "deltaY": -22,
+    "distance": 223.0874268084152,
+    "serverTimestamp": "2025-08-04T23:16:07.851Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:16:07.838Z",
+    "eventType": "touch_move",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 3,
+    "touchX": 104,
+    "touchY": 198,
+    "deltaX": -236,
+    "deltaY": -25,
+    "distance": 237.32045845227924,
+    "serverTimestamp": "2025-08-04T23:16:07.873Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:16:08.138Z",
+    "eventType": "touch_end",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 3,
+    "dragOverIndex": 3,
+    "touchX": 38,
+    "touchY": 180,
+    "swapWillOccur": false,
+    "serverTimestamp": "2025-08-04T23:16:08.197Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:16:08.818Z",
+    "eventType": "touch_start",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "index": 0,
+    "touchX": 50,
+    "touchY": 228,
+    "pageX": 50,
+    "pageY": 228,
+    "touchesCount": 1,
+    "targetElement": "DIV",
+    "serverTimestamp": "2025-08-04T23:16:08.860Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:16:09.204Z",
+    "eventType": "touch_end",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 0,
+    "dragOverIndex": 0,
+    "touchX": 386,
+    "touchY": 152,
+    "swapWillOccur": false,
+    "serverTimestamp": "2025-08-04T23:16:09.322Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:19:23.538Z",
+    "eventType": "touch_start",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "index": 1,
+    "touchX": 154,
+    "touchY": 224,
+    "pageX": 154,
+    "pageY": 224,
+    "touchesCount": 1,
+    "targetElement": "DIV",
+    "serverTimestamp": "2025-08-04T23:19:23.648Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:19:23.709Z",
+    "eventType": "touch_move",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 1,
+    "touchX": 204,
+    "touchY": 281,
+    "deltaX": 50,
+    "deltaY": 57,
+    "distance": 75.82216034906945,
+    "serverTimestamp": "2025-08-04T23:19:23.748Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:19:23.859Z",
+    "eventType": "touch_move",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 1,
+    "touchX": 211,
+    "touchY": 307,
+    "deltaX": 57,
+    "deltaY": 83,
+    "distance": 100.68763578513501,
+    "serverTimestamp": "2025-08-04T23:19:23.901Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:19:24.293Z",
+    "eventType": "touch_end",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 1,
+    "dragOverIndex": 1,
+    "touchX": 252,
+    "touchY": 177,
+    "swapWillOccur": false,
+    "serverTimestamp": "2025-08-04T23:19:24.346Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:19:25.230Z",
+    "eventType": "touch_start",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "index": 1,
+    "touchX": 146,
+    "touchY": 227,
+    "pageX": 146,
+    "pageY": 227,
+    "touchesCount": 1,
+    "targetElement": "DIV",
+    "serverTimestamp": "2025-08-04T23:19:25.280Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:19:25.709Z",
+    "eventType": "touch_move",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 1,
+    "touchX": 338,
+    "touchY": 178,
+    "deltaX": 192,
+    "deltaY": -49,
+    "distance": 198.15398053029367,
+    "serverTimestamp": "2025-08-04T23:19:25.760Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:19:25.876Z",
+    "eventType": "touch_end",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 1,
+    "dragOverIndex": 1,
+    "touchX": 358,
+    "touchY": 187,
+    "swapWillOccur": false,
+    "serverTimestamp": "2025-08-04T23:19:25.923Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:19:32.716Z",
+    "eventType": "touch_start",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "index": 3,
+    "touchX": 334,
+    "touchY": 235,
+    "pageX": 334,
+    "pageY": 235,
+    "touchesCount": 1,
+    "targetElement": "DIV",
+    "serverTimestamp": "2025-08-04T23:19:32.787Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:19:32.899Z",
+    "eventType": "touch_move",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 3,
+    "touchX": 244,
+    "touchY": 246,
+    "deltaX": -90,
+    "deltaY": 11,
+    "distance": 90.6697303403953,
+    "serverTimestamp": "2025-08-04T23:19:32.941Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:19:32.916Z",
+    "eventType": "touch_move",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 3,
+    "touchX": 243,
+    "touchY": 243,
+    "deltaX": -91,
+    "deltaY": 8,
+    "distance": 91.35097153287424,
+    "serverTimestamp": "2025-08-04T23:19:32.972Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:19:33.450Z",
+    "eventType": "touch_end",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 3,
+    "dragOverIndex": 3,
+    "touchX": 158,
+    "touchY": 128,
+    "swapWillOccur": false,
+    "serverTimestamp": "2025-08-04T23:19:33.496Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:19:34.384Z",
+    "eventType": "touch_start",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "index": 3,
+    "touchX": 328,
+    "touchY": 224,
+    "pageX": 328,
+    "pageY": 224,
+    "touchesCount": 1,
+    "targetElement": "DIV",
+    "serverTimestamp": "2025-08-04T23:19:34.430Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:19:34.750Z",
+    "eventType": "touch_move",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 3,
+    "touchX": 24,
+    "touchY": 216,
+    "deltaX": -304,
+    "deltaY": -8,
+    "distance": 304.1052449399714,
+    "serverTimestamp": "2025-08-04T23:19:34.795Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:19:35.016Z",
+    "eventType": "touch_end",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 3,
+    "dragOverIndex": 3,
+    "touchX": 26,
+    "touchY": 214,
+    "swapWillOccur": false,
+    "serverTimestamp": "2025-08-04T23:19:35.055Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:19:35.716Z",
+    "eventType": "touch_start",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "index": 0,
+    "touchX": 50,
+    "touchY": 221,
+    "pageX": 50,
+    "pageY": 221,
+    "touchesCount": 1,
+    "targetElement": "DIV",
+    "serverTimestamp": "2025-08-04T23:19:35.762Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:19:35.783Z",
+    "eventType": "touch_move",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 0,
+    "touchX": 93,
+    "touchY": 226,
+    "deltaX": 43,
+    "deltaY": 5,
+    "distance": 43.289721643826724,
+    "serverTimestamp": "2025-08-04T23:19:35.821Z",
+    "clientIP": "::ffff:192.168.1.119"
+  },
+  {
+    "timestamp": "2025-08-04T23:19:36.216Z",
+    "eventType": "touch_end",
+    "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Mobile/15E148 Safari/604.1",
+    "screenSize": {
+      "width": 390,
+      "height": 844
+    },
+    "viewportSize": {
+      "width": 390,
+      "height": 660
+    },
+    "draggedIndex": 0,
+    "dragOverIndex": 0,
+    "touchX": 386,
+    "touchY": 239,
+    "swapWillOccur": false,
+    "serverTimestamp": "2025-08-04T23:19:36.261Z",
+    "clientIP": "::ffff:192.168.1.119"
+  }
+]
