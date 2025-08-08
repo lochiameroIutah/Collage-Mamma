@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   manifest: "/manifest.json",
   appleWebApp: {
     capable: true,
-    statusBarStyle: "default",
+    statusBarStyle: "black-translucent",
     title: "Photo Collage",
   },
   icons: {
@@ -52,6 +52,9 @@ export default function RootLayout({
     <html lang="it">
       <head>
         <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="apple-touch-fullscreen" content="yes" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
