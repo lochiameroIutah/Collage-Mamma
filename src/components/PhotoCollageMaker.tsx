@@ -10,6 +10,7 @@ import {
   AlertCircle,
   Info,
   Plus,
+  HelpCircle,
 } from "lucide-react";
 import heic2any from "heic2any";
 import {
@@ -43,6 +44,113 @@ interface SortableImageProps {
   onRemoveImage: (index: number) => void;
   fileInputRef: React.RefObject<HTMLInputElement>;
 }
+
+// Componente wrapper per immagine con pulsante di rimozione dedicato
+interface ImageWithRemoveButtonProps {
+  index: number;
+  image: string | null;
+  isLoading: boolean;
+  progress: number;
+  onImageUpload: (index: number, file: File) => void;
+  onRemoveImage: (index: number) => void;
+  fileInputRef: React.RefObject<HTMLInputElement>;
+  showRemoveButton: boolean;
+  isTopRow?: boolean; // true per prime 4 immagini, false per successive
+  layout?: 'quadrati' | 'alternato'; // tipo di layout
+}
+
+const ImageWithRemoveButton: React.FC<ImageWithRemoveButtonProps> = ({
+  index,
+  image,
+  isLoading,
+  progress,
+  onImageUpload,
+  onRemoveImage,
+  fileInputRef,
+  showRemoveButton,
+  isTopRow = true,
+  layout = 'quadrati',
+}) => {
+  // Calcola gli stili specifici per il layout alternato
+  const getAlternateLayoutStyles = () => {
+    if (layout !== 'alternato') return {};
+    
+    const proportions = [1, 1.19, 0.81, 1];
+    const totalUnits = proportions.reduce((sum, prop) => sum + prop, 0);
+    const flexBasis = `${(proportions[index] / totalUnits) * 100}%`;
+    
+    // Nel layout alternato, solo la prima e l'ultima sono quadrate
+    const aspectRatio = index === 0 || index === 3 ? "1 / 1" : "auto";
+    
+    return {
+      flexBasis,
+      aspectRatio,
+      // Per slot 2 e 3, impostiamo un'altezza fissa basata sulla larghezza del primo slot
+      ...(index === 1 || index === 2
+        ? { height: "calc((100vw - 43.75px) / 4)" }
+        : {}),
+    };
+  };
+
+  const imageContainerStyles = layout === 'alternato' 
+    ? {
+        ...getAlternateLayoutStyles(),
+        minWidth: "50px",
+      }
+    : {
+        aspectRatio: "1 / 1",
+        minWidth: "60px",
+      };
+
+  return (
+    <div className="relative w-full">
+      {/* Pulsante di rimozione sopra per le prime 4 immagini - posizionato fuori dal bordo */}
+      {showRemoveButton && isTopRow && (
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            onRemoveImage(index);
+          }}
+          className="absolute -top-3 -right-1 bg-white text-black rounded-full p-1 transition-all hover:bg-gray-100 hover:scale-110 shadow-md min-w-[24px] min-h-[24px] flex items-center justify-center z-30 border border-gray-300"
+          title="Rimuovi immagine"
+        >
+          <X size={12} />
+        </button>
+      )}
+      
+      {/* Container dell'immagine */}
+      <div
+        className="relative bg-white overflow-hidden transition-all duration-300 ease-out w-full"
+        style={imageContainerStyles}
+      >
+        <SortableImage
+          id={index.toString()}
+          index={index}
+          image={image}
+          isLoading={isLoading}
+          progress={progress}
+          onImageUpload={onImageUpload}
+          onRemoveImage={onRemoveImage}
+          fileInputRef={fileInputRef}
+        />
+      </div>
+      
+      {/* Pulsante di rimozione sotto per le immagini successive - posizionato fuori dal bordo */}
+      {showRemoveButton && !isTopRow && (
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            onRemoveImage(index);
+          }}
+          className="absolute -bottom-3 -right-1 bg-white text-black rounded-full p-1 transition-all hover:bg-gray-100 hover:scale-110 shadow-md min-w-[24px] min-h-[24px] flex items-center justify-center z-30 border border-gray-300"
+          title="Rimuovi immagine"
+        >
+          <X size={12} />
+        </button>
+      )}
+    </div>
+  );
+};
 
 const SortableImage: React.FC<SortableImageProps> = ({
   id,
@@ -94,24 +202,12 @@ const SortableImage: React.FC<SortableImageProps> = ({
       />
 
       {image ? (
-        <>
-          <img
-            src={image}
-            alt={`Collage image ${index + 1}`}
-            className="w-full h-full object-cover"
-            draggable={false}
-          />
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              onRemoveImage(index);
-            }}
-            className="absolute top-2 right-2 bg-red-500 text-white rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity hover:bg-red-600"
-            title="Rimuovi immagine"
-          >
-            <X size={16} />
-          </button>
-        </>
+        <img
+          src={image}
+          alt={`Collage image ${index + 1}`}
+          className="w-full h-full object-cover"
+          draggable={false}
+        />
       ) : isLoading ? (
         <div className="flex flex-col items-center justify-center h-full p-4">
           <div className="w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mb-2"></div>
@@ -172,6 +268,7 @@ const PhotoCollageMaker = () => {
     })
   );
   const [showTooltip, setShowTooltip] = useState<boolean>(false);
+  const [showHelpModal, setShowHelpModal] = useState<boolean>(false);
   // Esteso a 8 foto
   const [loadingStates, setLoadingStates] = useState<boolean[]>([
     false,
@@ -269,7 +366,9 @@ const PhotoCollageMaker = () => {
     setLoadingStates([false, false, false, false, false, false, false, false]);
     setLoadingProgress([0, 0, 0, 0, 0, 0, 0, 0]);
 
-    const filesToProcess = fileArray.slice(0, 8);
+    // Limita i file in base al layout selezionato
+    const maxFiles = 8;
+    const filesToProcess = fileArray.slice(0, maxFiles);
     console.log(`📁 File da processare: ${filesToProcess.length}`);
 
     // Log dettagliato dei file
@@ -392,12 +491,14 @@ const PhotoCollageMaker = () => {
       }
 
       if (files.length > 0) {
-        if (files.length > 8) {
+        // Controlla il limite massimo di file
+        const maxFiles = 8;
+        if (files.length > maxFiles) {
           console.log(
-            `⚠️ Troppi file selezionati: ${files.length}, limitando a 8`
+            `⚠️ Troppi file selezionati: ${files.length}, limitando a ${maxFiles} per layout ${selectedLayout}`
           );
           alert(
-            `Hai selezionato ${files.length} immagini. Verranno caricate solo le prime 8.`
+            `Hai selezionato ${files.length} immagini. Nel layout ${selectedLayout} verranno caricate solo le prime ${maxFiles}.`
           );
         }
 
@@ -844,12 +945,17 @@ Soluzioni rapide:
       let totalHeight: number;
 
       // Calcola dimensioni in base al layout selezionato
-      const loadedImages = images.filter(img => img !== null && img !== "HEIC_PLACEHOLDER").length;
-      
+      const loadedImages = images.filter(
+        (img) => img !== null && img !== "HEIC_PLACEHOLDER"
+      ).length;
+
       if (selectedLayout === "quadrati") {
         if (loadedImages <= 4) {
           // Layout orizzontale per 4 o meno foto
-          totalWidth = baseSize * Math.min(loadedImages, 4) + spacing * (Math.min(loadedImages, 4) - 1) + outerBorder * 2;
+          totalWidth =
+            baseSize * Math.min(loadedImages, 4) +
+            spacing * (Math.min(loadedImages, 4) - 1) +
+            outerBorder * 2;
           totalHeight = baseSize + outerBorder * 2;
         } else {
           // Layout a due righe per più di 4 foto
@@ -936,7 +1042,9 @@ Soluzioni rapide:
                     const secondRowIndex = index - 4;
                     const secondRowCount = Math.min(loadedImages - 4, 4);
                     // Centra la seconda riga se ha meno di 4 foto
-                    const secondRowStartX = outerBorder + (4 - secondRowCount) * (baseSize + spacing) / 2;
+                    const secondRowStartX =
+                      outerBorder +
+                      ((4 - secondRowCount) * (baseSize + spacing)) / 2;
                     x = secondRowStartX + secondRowIndex * (baseSize + spacing);
                     y = outerBorder + baseSize + spacing;
                   }
@@ -1133,85 +1241,41 @@ Soluzioni rapide:
   };
 
   return (
-    <div className="min-h-screen bg-gray-100">
-      {/* Container con padding per tutti gli elementi TRANNE il collage */}
-      <div className="px-2 sm:px-4 pt-2 sm:pt-4">
-        <div className="text-center mb-4 sm:mb-8">
-          <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-2">
-            Creatore di Collage
-          </h1>
-          <p className="text-sm sm:text-base text-gray-600">
-            Carica le immagini e trascinale per riordinarle
-          </p>
-        </div>
-
-        {/* Selettore Layout */}
-        {(() => {
-          // Conta le foto caricate
-          const loadedImages = images.filter(img => img !== null && img !== "HEIC_PLACEHOLDER").length;
-          // Disabilita layout alternativo se ci sono più di 4 foto
-          const isAlternateDisabled = loadedImages > 4;
-          // Mostra selettore solo se c'è almeno 1 foto
-          const showLayoutSelector = loadedImages > 0;
-          
-          return showLayoutSelector ? (
-            <div className="mb-6 text-center">
-              <div className="inline-flex rounded-lg border border-gray-200 bg-white p-1">
-                <button
-                  onClick={() => setSelectedLayout("quadrati")}
-                  className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
-                    selectedLayout === "quadrati"
-                      ? "bg-blue-500 text-white"
-                      : "bg-gray-200 text-gray-700"
-                  }`}
-                >
-                  QUADRATI
-                </button>
-                <button
-                  onClick={() => !isAlternateDisabled && setSelectedLayout("alternato")}
-                  disabled={isAlternateDisabled}
-                  className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
-                    selectedLayout === "alternato" && !isAlternateDisabled
-                      ? "bg-blue-500 text-white"
-                      : isAlternateDisabled
-                      ? "bg-gray-100 text-gray-400 cursor-not-allowed"
-                      : "bg-gray-200 text-gray-700"
-                  }`}
-                  title={isAlternateDisabled ? "Layout alternativo disponibile solo con massimo 4 foto" : ""}
-                >
-                  ALTERNATO
-                </button>
-              </div>
-              {isAlternateDisabled && (
-                <p className="text-xs text-orange-600 mt-2">
-                  Layout alternativo disponibile solo con massimo 4 foto
-                </p>
-              )}
-            </div>
-          ) : null;
-        })()}
-
-        <div className="text-center mb-4 sm:mb-6">
+    <div className="bg-gray-100 overflow-y-auto" style={{ height: '100dvh' }}>
+      {/* Header fisso */}
+      <div className="fixed top-0 left-0 right-0 bg-white border-b border-gray-200 px-2 sm:px-4 py-3 z-50">
+        <div className="flex justify-between items-center">
+          <div className="text-left">
+            <h1 className="text-lg uppercase font-bold text-gray-800 mb-1">
+              Creatore di Collage
+            </h1>
+            <p className="text-xs sm:text-base text-gray-600">
+              Carica le immagini e trascinale per riordinarle
+            </p>
+          </div>
           <button
-            onClick={triggerBulkFileInput}
-            className="flex items-center justify-center mx-auto px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-lg hover:from-green-600 hover:to-emerald-700 transition-all duration-200 shadow-lg text-sm sm:text-base"
+            onClick={() => setShowHelpModal(true)}
+            className="p-2 text-gray-600 hover:text-blue-600 transition-colors"
+            title="Come usare"
           >
-            <Plus size={18} className="mr-2" />
-            Carica Immagini (Max 8)
+            <HelpCircle size={24} />
           </button>
-          <p className="text-xs sm:text-sm text-gray-500 mt-2">
-            Seleziona fino a 4 immagini che si posizioneranno automaticamente
-          </p>
         </div>
       </div>
 
+      {/* Contenuto principale con padding top per header fisso */}
+      <div className="pt-20 pb-40 min-h-screen flex flex-col justify-center items-center">
+
+
+
       {/* Collage Layout - SENZA PADDING, con bordo bianco come originale */}
-      <div className="w-full mb-4 sm:mb-8">
+      <div className="w-full mb-4 sm:mb-8 flex justify-center items-center">
         <div
-          className="bg-white mx-auto flex justify-center"
+          className="bg-white flex justify-center items-center"
           style={{
             padding: "8.75px", // Bordo bianco originale della versione 55
             width: "100%",
+            maxWidth: "800px", // Larghezza massima per centrare il contenuto
           }}
         >
           <DndContext
@@ -1227,8 +1291,10 @@ Soluzioni rapide:
               {selectedLayout === "quadrati" ? (
                 // Layout Quadrati - fino a 8 foto con due righe
                 (() => {
-                  const loadedImages = images.filter(img => img !== null && img !== "HEIC_PLACEHOLDER").length;
-                  
+                  const loadedImages = images.filter(
+                    (img) => img !== null && img !== "HEIC_PLACEHOLDER"
+                  ).length;
+
                   if (loadedImages <= 4) {
                     // Layout orizzontale per 4 o meno foto
                     return (
@@ -1241,27 +1307,20 @@ Soluzioni rapide:
                         }}
                       >
                         {images.slice(0, 4).map((image, index) => (
-                          <div
+                          <ImageWithRemoveButton
                             key={index}
-                            className="relative bg-white overflow-hidden transition-all duration-300 ease-out flex-1"
-                            style={{
-                              aspectRatio: "1 / 1",
-                              minWidth: "60px",
+                            index={index}
+                            image={image}
+                            isLoading={loadingStates[index]}
+                            progress={loadingProgress[index]}
+                            onImageUpload={handleImageUpload}
+                            onRemoveImage={removeImage}
+                            fileInputRef={{
+                              current: fileInputRefs.current[index]!,
                             }}
-                          >
-                            <SortableImage
-                              id={index.toString()}
-                              index={index}
-                              image={image}
-                              isLoading={loadingStates[index]}
-                              progress={loadingProgress[index]}
-                              onImageUpload={handleImageUpload}
-                              onRemoveImage={removeImage}
-                              fileInputRef={{
-                                current: fileInputRefs.current[index]!,
-                              }}
-                            />
-                          </div>
+                            showRemoveButton={image !== null && image !== "HEIC_PLACEHOLDER"}
+                            isTopRow={true}
+                          />
                         ))}
                       </div>
                     );
@@ -1285,30 +1344,23 @@ Soluzioni rapide:
                           }}
                         >
                           {images.slice(0, 4).map((image, index) => (
-                            <div
+                            <ImageWithRemoveButton
                               key={index}
-                              className="relative bg-white overflow-hidden transition-all duration-300 ease-out flex-1"
-                              style={{
-                                aspectRatio: "1 / 1",
-                                minWidth: "60px",
+                              index={index}
+                              image={image}
+                              isLoading={loadingStates[index]}
+                              progress={loadingProgress[index]}
+                              onImageUpload={handleImageUpload}
+                              onRemoveImage={removeImage}
+                              fileInputRef={{
+                                current: fileInputRefs.current[index]!,
                               }}
-                            >
-                              <SortableImage
-                                id={index.toString()}
-                                index={index}
-                                image={image}
-                                isLoading={loadingStates[index]}
-                                progress={loadingProgress[index]}
-                                onImageUpload={handleImageUpload}
-                                onRemoveImage={removeImage}
-                                fileInputRef={{
-                                  current: fileInputRefs.current[index]!,
-                                }}
-                              />
-                            </div>
+                              showRemoveButton={image !== null && image !== "HEIC_PLACEHOLDER"}
+                              isTopRow={true}
+                            />
                           ))}
                         </div>
-                        
+
                         {/* Seconda riga - foto dalla 5 alla 8 */}
                         <div
                           className="flex"
@@ -1320,27 +1372,21 @@ Soluzioni rapide:
                           {images.slice(4, 8).map((image, index) => {
                             const actualIndex = index + 4;
                             return (
-                              <div
+                              <ImageWithRemoveButton
                                 key={actualIndex}
-                                className="relative bg-white overflow-hidden transition-all duration-300 ease-out flex-1"
-                                style={{
-                                  aspectRatio: "1 / 1",
-                                  minWidth: "60px",
+                                index={actualIndex}
+                                image={image}
+                                isLoading={loadingStates[actualIndex]}
+                                progress={loadingProgress[actualIndex]}
+                                onImageUpload={handleImageUpload}
+                                onRemoveImage={removeImage}
+                                fileInputRef={{
+                                  current: fileInputRefs.current[actualIndex]!,
                                 }}
-                              >
-                                <SortableImage
-                                  id={actualIndex.toString()}
-                                  index={actualIndex}
-                                  image={image}
-                                  isLoading={loadingStates[actualIndex]}
-                                  progress={loadingProgress[actualIndex]}
-                                  onImageUpload={handleImageUpload}
-                                  onRemoveImage={removeImage}
-                                  fileInputRef={{
-                                    current: fileInputRefs.current[actualIndex]!,
-                                  }}
-                                />
-                              </div>
+                                showRemoveButton={image !== null && image !== "HEIC_PLACEHOLDER"}
+                                isTopRow={false}
+                                layout="quadrati"
+                              />
                             );
                           })}
                         </div>
@@ -1349,7 +1395,7 @@ Soluzioni rapide:
                   }
                 })()
               ) : (
-                // Layout Alternato - proporzioni variabili
+                // Layout Alternato - proporzioni specifiche
                 <div
                   className="flex"
                   style={{
@@ -1358,10 +1404,11 @@ Soluzioni rapide:
                     maxWidth: "calc(100vw - 17.5px)",
                   }}
                 >
-                  {images.map((image, index) => {
+                  {images.slice(0, 4).map((image, index) => {
                     // Calcola le proporzioni per il layout alternato
                     const getFlexBasis = (index: number) => {
-                      const proportions = [1, 1.18, 0.82, 1]; // base, +18%, -18%, base
+                      // 1° quadrata (base), 2° +19%, 3° -19%, 4° quadrata (base)
+                      const proportions = [1, 1.19, 0.81, 1];
                       const totalUnits = proportions.reduce(
                         (sum, prop) => sum + prop,
                         0
@@ -1369,8 +1416,7 @@ Soluzioni rapide:
                       return `${(proportions[index] / totalUnits) * 100}%`;
                     };
 
-                    // Nel layout alternato, solo il primo e l'ultimo slot sono quadrati
-                    // Gli altri mantengono l'altezza base ma hanno larghezze diverse
+                    // Nel layout alternato, solo la prima e l'ultima sono quadrate
                     const getAspectRatio = (index: number) => {
                       return index === 0 || index === 3 ? "1 / 1" : "auto";
                     };
@@ -1378,19 +1424,12 @@ Soluzioni rapide:
                     return (
                       <div
                         key={index}
-                        className="relative bg-white overflow-hidden transition-all duration-300 ease-out"
                         style={{
                           flexBasis: getFlexBasis(index),
-                          aspectRatio: getAspectRatio(index),
                           minWidth: "50px",
-                          // Per slot 2 e 3, impostiamo un'altezza fissa basata sulla larghezza del primo slot
-                          ...(index === 1 || index === 2
-                            ? { height: "calc((100vw - 43.75px) / 4)" }
-                            : {}),
                         }}
                       >
-                        <SortableImage
-                          id={index.toString()}
+                        <ImageWithRemoveButton
                           index={index}
                           image={image}
                           isLoading={loadingStates[index]}
@@ -1400,6 +1439,9 @@ Soluzioni rapide:
                           fileInputRef={{
                             current: fileInputRefs.current[index]!,
                           }}
+                          showRemoveButton={image !== null && image !== "HEIC_PLACEHOLDER"}
+                          isTopRow={true}
+                          layout="alternato"
                         />
                       </div>
                     );
@@ -1458,95 +1500,220 @@ Soluzioni rapide:
         </div>
       )}
 
-      <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 mb-4 sm:mb-6">
-        <h3 className="font-semibold text-blue-800 mb-2 text-sm">
-          Come usare:
-        </h3>
-        <div className="text-blue-700 text-xs space-y-1">
-          <p>
-            • <strong>&quot;Carica Immagini&quot;</strong> per caricare fino a 4
-            foto in blocco
-          </p>
-          <p>• Le immagini si posizionano automaticamente in ordine 1-2-3-4</p>
-          <p>
-            • <strong>Tieni premuto e trascina</strong> per riordinare •{" "}
-            <strong>&quot;Esporta&quot;</strong> per salvare
-          </p>
-          <p className="text-blue-600">
-            📱 Su mobile: <strong>premi e trascina</strong> per riordinare
-            (vedrai &quot;TRASCINANDO...&quot; e &quot;RILASCIA QUI&quot;)
+        {/* Pulsante Carica Immagini */}
+        <div className="text-center mb-4 sm:mb-6">
+          <button
+            onClick={triggerBulkFileInput}
+            className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-base font-medium shadow-lg"
+          >
+            <Upload size={20} className="mr-2" />
+            {(() => {
+              const loadedImages = images.filter(
+                (img) => img !== null && img !== "HEIC_PLACEHOLDER"
+              ).length;
+              const maxFiles = 8;
+              return `Carica Immagini (${loadedImages}/${maxFiles})`;
+            })()}
+          </button>
+          <p className="text-xs text-gray-500 mt-2">
+            {selectedLayout === "alternato"
+              ? "Massimo 8 immagini per il layout alternato"
+              : "Massimo 8 immagini per il layout quadrati"}
           </p>
         </div>
+
+
       </div>
 
-      <div className="flex flex-col sm:flex-row gap-3 justify-center relative px-4">
-        <div className="relative">
+      {/* Pulsanti fissi in fondo */}
+      <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-4 z-50">
+        {/* Selettore Layout */}
+        {(() => {
+          // Conta le foto caricate
+          const loadedImages = images.filter(
+            (img) => img !== null && img !== "HEIC_PLACEHOLDER"
+          ).length;
+          // Mostra selettore sempre, indipendentemente dal numero di foto
+          const showLayoutSelector = true;
+
+          return showLayoutSelector ? (
+            <div className="mb-3 text-center">
+              <div className="inline-flex rounded-lg border border-gray-200 bg-white p-1">
+                <button
+                  onClick={() => setSelectedLayout("quadrati")}
+                  className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+                    selectedLayout === "quadrati"
+                      ? "bg-blue-500 text-white"
+                      : "bg-gray-200 text-gray-700"
+                  }`}
+                >
+                  QUADRATI
+                </button>
+                <button
+                  onClick={() => setSelectedLayout("alternato")}
+                  className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+                    selectedLayout === "alternato"
+                      ? "bg-blue-500 text-white"
+                      : "bg-gray-200 text-gray-700"
+                  }`}
+                >
+                  ALTERNATO
+                </button>
+              </div>
+            </div>
+          ) : null;
+        })()}
+
+
+
+        {/* Pulsanti Reset ed Esporta */}
+        <div className="flex items-center justify-center gap-3 pb-10 max-w-md mx-auto">
           <button
-            ref={buttonRef}
-            onClick={() => saveToGallery("jpeg")}
-            disabled={
-              !images.some((img) => img !== null && img !== "HEIC_PLACEHOLDER")
-            }
-            className="flex items-center justify-center w-full sm:w-auto px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors shadow-lg text-sm font-medium"
+            onClick={resetAll}
+            className="flex items-center justify-center w-12 h-12 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors shadow-lg"
+            title="Reset Tutto"
           >
-            <Download size={18} className="mr-2" />
-            Esporta Collage
+            <RotateCcw size={20} />
           </button>
 
-          {showTooltip && (
-            <div
-              ref={tooltipRef}
-              className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-white border border-gray-200 rounded-lg shadow-xl p-4 z-50 min-w-48"
-              style={{
-                animation: "fadeIn 0.2s ease-in-out",
-              }}
+          <div className="relative flex-1">
+            <button
+              ref={buttonRef}
+              onClick={() => saveToGallery("jpeg")}
+              disabled={
+                !images.some(
+                  (img) => img !== null && img !== "HEIC_PLACEHOLDER"
+                )
+              }
+              className="flex items-center justify-center w-full px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors shadow-lg text-sm font-medium"
             >
-              <div className="text-sm font-medium text-gray-800 mb-3">
-                📱 Scegli formato e salva:
-              </div>
-              <div className="flex gap-2">
-                <button
-                  onClick={() => saveToGallery("png")}
-                  className="flex-1 px-3 py-2 bg-blue-600 text-white text-sm rounded hover:bg-blue-700 transition-colors font-medium"
-                >
-                  PNG
-                </button>
-                <button
-                  onClick={() => saveToGallery("jpeg")}
-                  className="flex-1 px-3 py-2 bg-green-600 text-white text-sm rounded hover:bg-green-700 transition-colors font-medium"
-                >
-                  JPEG
-                </button>
-              </div>
-              <p className="text-xs text-gray-500 mt-2 text-center">
-                Su mobile: condividi o salva in galleria
-              </p>
+              <Download size={18} className="mr-2" />
+              Esporta Collage
+            </button>
 
-              <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-white"></div>
-            </div>
-          )}
+            {showTooltip && (
+              <div
+                ref={tooltipRef}
+                className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 bg-white border border-gray-200 rounded-lg shadow-xl p-4 z-50 min-w-48"
+                style={{
+                  animation: "fadeIn 0.2s ease-in-out",
+                }}
+              >
+                <div className="text-sm font-medium text-gray-800 mb-3">
+                  📱 Scegli formato e salva:
+                </div>
+                <div className="flex gap-2">
+                  <button
+                    onClick={() => saveToGallery("png")}
+                    className="flex-1 px-3 py-2 bg-blue-600 text-white text-sm rounded hover:bg-blue-700 transition-colors font-medium"
+                  >
+                    PNG
+                  </button>
+                  <button
+                    onClick={() => saveToGallery("jpeg")}
+                    className="flex-1 px-3 py-2 bg-green-600 text-white text-sm rounded hover:bg-green-700 transition-colors font-medium"
+                  >
+                    JPEG
+                  </button>
+                </div>
+                <p className="text-xs text-gray-500 mt-2 text-center">
+                  Su mobile: condividi o salva in galleria
+                </p>
+
+                <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent border-t-white"></div>
+              </div>
+            )}
+          </div>
         </div>
-
-        <button
-          onClick={resetAll}
-          className="flex items-center justify-center w-full sm:w-auto px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors shadow-lg text-sm font-medium"
-        >
-          <RotateCcw size={18} className="mr-2" />
-          Reset Tutto
-        </button>
-      </div>
-
-      <div className="mt-6 text-center">
-        <p className="text-xs text-gray-500">
-          💾 Le immagini vengono elaborate localmente • Non vengono inviate
-          online
-        </p>
-        <p className="text-xs text-gray-400 mt-1">
-          📱 Mobile: <strong>Premi e trascina</strong> le immagini per
-          riordinarle • Feedback visivo durante il trascinamento
-        </p>
+        
         <canvas ref={canvasRef} style={{ display: "none" }} />
       </div>
+
+      {/* Modale Come usare */}
+      {showHelpModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+          <div className="bg-white rounded-xl shadow-2xl max-w-md w-full max-h-[80vh] overflow-y-auto">
+            <div className="p-6">
+              <div className="flex items-center justify-between mb-4">
+                <h2 className="text-xl font-bold text-gray-800 flex items-center">
+                  <HelpCircle size={24} className="mr-2 text-blue-600" />
+                  Come usare l'app
+                </h2>
+                <button
+                  onClick={() => setShowHelpModal(false)}
+                  className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+                >
+                  <X size={20} className="text-gray-500" />
+                </button>
+              </div>
+
+              <div className="space-y-4 text-sm text-gray-700">
+                <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+                  <h3 className="font-semibold text-green-800 mb-2 flex items-center">
+                    <Plus size={16} className="mr-2" />
+                    Caricamento Immagini
+                  </h3>
+                  <p>
+                    Clicca su <strong>"Carica Immagini"</strong> per selezionare
+                    fino a 8 foto. Le immagini si posizionano automaticamente
+                    nel collage.
+                  </p>
+                </div>
+
+                <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                  <h3 className="font-semibold text-blue-800 mb-2 flex items-center">
+                    <RotateCcw size={16} className="mr-2" />
+                    Riordinamento
+                  </h3>
+                  <p>
+                    <strong>Tieni premuto e trascina</strong> le immagini per
+                    riordinarle. Su mobile vedrai "TRASCINANDO..." e "RILASCIA
+                    QUI" come feedback visivo.
+                  </p>
+                </div>
+
+                <div className="bg-purple-50 border border-purple-200 rounded-lg p-4">
+                  <h3 className="font-semibold text-purple-800 mb-2">
+                    Layout Disponibili
+                  </h3>
+                  <ul className="space-y-1 text-xs">
+                    <li>
+                      • <strong>Quadrati:</strong> Disposizione a griglia (fino
+                      a 8 foto)
+                    </li>
+                    <li>
+                      • <strong>Alternato:</strong> Layout artistico (fino
+                      a 8 foto)
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="bg-orange-50 border border-orange-200 rounded-lg p-4">
+                  <h3 className="font-semibold text-orange-800 mb-2 flex items-center">
+                    <Download size={16} className="mr-2" />
+                    Esportazione
+                  </h3>
+                  <p>
+                    Usa <strong>"Esporta Collage"</strong> per salvare il tuo
+                    collage. Puoi scegliere tra formato PNG o JPEG.
+                  </p>
+                </div>
+
+
+              </div>
+
+              <div className="mt-6 text-center">
+                <button
+                  onClick={() => setShowHelpModal(false)}
+                  className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium"
+                >
+                  Ho capito!
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       <style jsx>{`
         @keyframes fadeIn {
