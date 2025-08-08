@@ -1,18 +1,16 @@
 "use client";
 
 import React, { useState, useRef, useCallback, useEffect } from "react";
+import NextImage from "next/image";
 import {
   Upload,
   X,
   RotateCcw,
   Download,
-  Share2,
-  AlertCircle,
-  Info,
   Plus,
   HelpCircle,
 } from "lucide-react";
-import heic2any from "heic2any";
+
 import {
   DndContext,
   closestCenter,
@@ -41,7 +39,6 @@ interface SortableImageProps {
   isLoading: boolean;
   progress: number;
   onImageUpload: (index: number, file: File) => void;
-  onRemoveImage: (index: number) => void;
   fileInputRef: React.RefObject<HTMLInputElement>;
 }
 
@@ -130,7 +127,6 @@ const ImageWithRemoveButton: React.FC<ImageWithRemoveButtonProps> = ({
           isLoading={isLoading}
           progress={progress}
           onImageUpload={onImageUpload}
-          onRemoveImage={onRemoveImage}
           fileInputRef={fileInputRef}
         />
       </div>
@@ -159,7 +155,6 @@ const SortableImage: React.FC<SortableImageProps> = ({
   isLoading,
   progress,
   onImageUpload,
-  onRemoveImage,
   fileInputRef,
 }) => {
   const {
@@ -202,10 +197,11 @@ const SortableImage: React.FC<SortableImageProps> = ({
       />
 
       {image ? (
-        <img
+        <NextImage
           src={image}
           alt={`Collage image ${index + 1}`}
-          className="w-full h-full object-cover"
+          fill
+          className="object-cover"
           draggable={false}
         />
       ) : isLoading ? (
@@ -587,7 +583,7 @@ const PhotoCollageMaker = () => {
         const progressInterval = simulateProgress(index, 1500);
 
         // Processa conversione dopo un piccolo delay per evitare race conditions
-        const timeoutId = setTimeout(() => {
+        setTimeout(() => {
           convertImageToPNG(file, index, progressInterval);
         }, 100);
       } else {
@@ -833,17 +829,17 @@ Soluzioni rapide:
   };
 
   // Funzione per gestire il drop di file (mantenuta per compatibilità)
-  const handleFileDrop = (e: React.DragEvent, index: number) => {
-    e.preventDefault();
-    e.stopPropagation();
+  // const handleFileDrop = (e: React.DragEvent, index: number) => {
+  //   e.preventDefault();
+  //   e.stopPropagation();
 
-    const files = e.dataTransfer.files;
-    if (files.length > 1) {
-      handleBulkUpload(files);
-    } else if (files.length === 1) {
-      handleImageUpload(index, files[0]);
-    }
-  };
+  //   const files = e.dataTransfer.files;
+  //   if (files.length > 1) {
+  //     handleBulkUpload(files);
+  //   } else if (files.length === 1) {
+  //     handleImageUpload(index, files[0]);
+  //   }
+  // };
 
   const removeImage = (index: number) => {
     const newImages = [...images];
@@ -860,18 +856,18 @@ Soluzioni rapide:
     setLoadingProgress([0, 0, 0, 0, 0, 0, 0, 0]);
   };
 
-  const triggerFileInput = (index: number) => {
-    const input = document.createElement("input");
-    input.type = "file";
-    input.accept = "image/*,.heic,.heif,.avif,.webp,.tiff,.tif,.bmp,.ico";
-    input.onchange = (e) => {
-      const files = (e.target as HTMLInputElement).files;
-      if (files?.[0]) {
-        handleImageUpload(index, files[0]);
-      }
-    };
-    input.click();
-  };
+  // const triggerFileInput = (index: number) => {
+  //   const input = document.createElement("input");
+  //   input.type = "file";
+  //   input.accept = "image/*,.heic,.heif,.avif,.webp,.tiff,.tif,.bmp,.ico";
+  //   input.onchange = (e) => {
+  //     const files = (e.target as HTMLInputElement).files;
+  //     if (files?.[0]) {
+  //       handleImageUpload(index, files[0]);
+  //     }
+  //   };
+  //   input.click();
+  // };
 
   const checkTooltipDistance = useCallback((e: MouseEvent) => {
     if (!showTooltip || !tooltipRef.current || !buttonRef.current) return;
@@ -1416,10 +1412,7 @@ Soluzioni rapide:
                       return `${(proportions[index] / totalUnits) * 100}%`;
                     };
 
-                    // Nel layout alternato, solo la prima e l'ultima sono quadrate
-                    const getAspectRatio = (index: number) => {
-                      return index === 0 || index === 3 ? "1 / 1" : "auto";
-                    };
+
 
                     return (
                       <div
@@ -1458,10 +1451,11 @@ Soluzioni rapide:
                 >
                   {images[parseInt(activeId)] &&
                   images[parseInt(activeId)] !== "HEIC_PLACEHOLDER" ? (
-                    <img
+                    <NextImage
                       src={images[parseInt(activeId)]!}
                       alt={`Immagine ${parseInt(activeId) + 1}`}
-                      className="w-full h-full object-cover select-none block"
+                      fill
+                      className="object-cover select-none block"
                       draggable={false}
                     />
                   ) : null}
@@ -1529,10 +1523,7 @@ Soluzioni rapide:
       <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-4 z-50">
         {/* Selettore Layout */}
         {(() => {
-          // Conta le foto caricate
-          const loadedImages = images.filter(
-            (img) => img !== null && img !== "HEIC_PLACEHOLDER"
-          ).length;
+
           // Mostra selettore sempre, indipendentemente dal numero di foto
           const showLayoutSelector = true;
 
@@ -1637,7 +1628,7 @@ Soluzioni rapide:
               <div className="flex items-center justify-between mb-4">
                 <h2 className="text-xl font-bold text-gray-800 flex items-center">
                   <HelpCircle size={24} className="mr-2 text-blue-600" />
-                  Come usare l'app
+                  Come usare l&apos;app
                 </h2>
                 <button
                   onClick={() => setShowHelpModal(false)}
@@ -1654,7 +1645,7 @@ Soluzioni rapide:
                     Caricamento Immagini
                   </h3>
                   <p>
-                    Clicca su <strong>"Carica Immagini"</strong> per selezionare
+                    Clicca su <strong>&quot;Carica Immagini&quot;</strong> per selezionare
                     fino a 8 foto. Le immagini si posizionano automaticamente
                     nel collage.
                   </p>
@@ -1667,8 +1658,8 @@ Soluzioni rapide:
                   </h3>
                   <p>
                     <strong>Tieni premuto e trascina</strong> le immagini per
-                    riordinarle. Su mobile vedrai "TRASCINANDO..." e "RILASCIA
-                    QUI" come feedback visivo.
+                    riordinarle. Su mobile vedrai &quot;TRASCINANDO...&quot; e &quot;RILASCIA
+                    QUI&quot; come feedback visivo.
                   </p>
                 </div>
 
@@ -1694,7 +1685,7 @@ Soluzioni rapide:
                     Esportazione
                   </h3>
                   <p>
-                    Usa <strong>"Esporta Collage"</strong> per salvare il tuo
+                    Usa <strong>&quot;Esporta Collage&quot;</strong> per salvare il tuo
                     collage. Puoi scegliere tra formato PNG o JPEG.
                   </p>
                 </div>
